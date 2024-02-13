@@ -20,12 +20,15 @@ public class Main {
         vehicles.add(truck1);
         vehicles.add(truck2);
 
+        ISimOutput simOutput = new ImperialOutput();
+
         for (int i = 0; i < 11; i++) {
             for (Vehicle v : vehicles) {
                 v.updateSpeed(1);
                 String s = v.getClass().toString();
-                System.out.println(s + " speed: " + f.format(v.getCurSpeed()) + " mph");
+                System.out.println(s + " speed: " + f.format(simOutput.GetSpeed(v)) + " mph");
             }
         }
+
     }
 }
