@@ -12,15 +12,15 @@ public class Truck extends Vehicle
 
     @Override protected void Accelerate(int seconds) {
         if (loadWeight <= 5)
-            setCurSpeed(getCurSpeed() + Constants.AccRateEmpty * seconds * Constants.MpsToMph);
+            setCurSpeed(getCurSpeed() + Constants.AccRateEmpty * seconds);
         else
-            setCurSpeed(getCurSpeed() + Constants.AccRateFull * seconds * Constants.MpsToMph);
+            setCurSpeed(getCurSpeed() + Constants.AccRateFull * seconds);
     }
 
     @Override protected void Decelerate(int seconds) {
         if (loadWeight <= 5)
-            setCurSpeed(getCurSpeed() - Constants.DecRateEmpty * seconds * Constants.MpsToMph);
+            setCurSpeed(getCurSpeed() - Constants.DecRateEmpty * seconds);
         else
-            setCurSpeed(getCurSpeed() - Constants.DecRateFull * seconds * Constants.MpsToMph);
+            setCurSpeed(getCurSpeed() - Constants.DecRateFull * seconds);
     }
 }
