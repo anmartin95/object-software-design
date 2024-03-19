@@ -1,4 +1,4 @@
 interface ISimOutput
 {
-    double GetSpeed(Vehicle v);
+    public double GetSpeed(Vehicle v);
 }

@@ -23,7 +23,7 @@ public abstract class Vehicle extends DynamicRoadItem
             } else{
                 curSpeed = speed;
             }
-        } else{
+        } else{ // if breaking
             if (speed < goalSpeed){
                 curSpeed = goalSpeed;
             } else{
