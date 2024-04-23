@@ -2,7 +2,7 @@ package roadelements;
 import guimap.*;
 import staticclasses.*;
 
-public abstract class Vehicle extends DynamicRoadItem
+public abstract class Vehicle
 {
     private double curSpeed = 0.0;
     private double goalSpeed;

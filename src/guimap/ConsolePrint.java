@@ -2,6 +2,9 @@ package guimap;
 import roadelements.*;
 import staticclasses.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ConsolePrint implements IPrintDriver {
 
     public void PrintRoad(Road road, Object o) {
@@ -11,6 +14,7 @@ public class ConsolePrint implements IPrintDriver {
         int CCy = Conversions.WCpointToCCpoint(-road.GetYLocation());
         int distance = 0;
         int CCRoadLength = Conversions.WClengthToCClength(road.GetLength());
+        List<RoadItem> items = road.GetRoadItems();
         switch (road.GetHeading()) {
             case North:
                 x = (int) CCx;
@@ -21,6 +25,13 @@ public class ConsolePrint implements IPrintDriver {
                             cm.map[y][x] = '|';
                             cm.map[y][x + 2] = '|';
                             cm.map[y][x + 4] = '|';
+                            for (RoadItem ri: items)
+                            {
+                                if (y == ri.GetMileMarker())
+                                {
+                                    cm.map[y][x + 6] = ri.PrintRoadItem();
+                                }
+                            }
                         }
                         distance += 1;
                     }

@@ -16,6 +16,11 @@ public class Map {
         roads.add(road);
     }
 
+    public List<Road> getRoads()
+    {
+        return roads;
+    }
+
     public void Print(IPrintDriver pd, Object o) {
         for (Road road : roads) {
             road.Print(pd, o);

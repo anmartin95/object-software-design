@@ -2,9 +2,12 @@ package roadelements;
 import guimap.*;
 import staticclasses.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Road
 {
-    //private RoadItem head;
+    private List<RoadItem> roaditems;
     private String name;
     private double length;
     private double xlocation;
@@ -14,9 +17,7 @@ public class Road
 
     public Road(String streetName, double locX, double locY, double len, Heading hdg)
     {
-        //head = new RoadItem();
-        //head.SetPrevious(null);
-        //head.SetNext(null);
+        roaditems = new ArrayList<>();
         name = streetName;
         length = len;
         heading = hdg;
@@ -35,42 +36,20 @@ public class Road
 
     public String GetRoadName() { return name; }
 
-    //public void AddRoadItem(RoadItem roadItem)
-    //{
-    //    roadItem.SetCurrentRoad(this);
-    //    RoadItem currentItem = head;
-    //    while (currentItem.GetNext() != null)
-    //    {
-    //        currentItem = currentItem.GetNext();
-    //        if (currentItem.GetMileMarker() > roadItem.GetMileMarker())
-    //        {
-    //            InsertNewItemBefore(currentItem, roadItem);
-    //            return;
-    //        }
-    //    }
-    //    InsertNewItemAfter(currentItem, roadItem);
-    //}
-
     public void Print(IPrintDriver print, Object o)
     {
         print.PrintRoad(this, o);
     }
 
-    //    private void InsertNewItemBefore(RoadItem current, RoadItem newItem)
-    //    {
-    //        newItem.SetPrevious(current.GetPrevious());
-    //        newItem.SetNext(current);
-    //        current.SetPrevious(newItem);
-    //        newItem.GetPrevious().SetNext(newItem);
-    //    }
+    public void AddRoadItem(RoadItem roaditem)
+    {
+        roaditems.add(roaditem);
+    }
 
-    //    private void InsertNewItemAfter(RoadItem current, RoadItem newItem)
-    //    {
-    //        newItem.SetNext(current.GetNext());
-    //        current.SetNext(newItem);
-    //        newItem.SetPrevious(current);
-    //        if (newItem.GetNext() != null) newItem.GetNext().SetPrevious(newItem);
-    //    }
-    //
+    public List<RoadItem> GetRoadItems()
+    {
+        return roaditems;
+    }
+    
 }
 
